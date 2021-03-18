@@ -1,11 +1,11 @@
-package com.picpay.desafio.android.ui.adapter
+package com.picpay.desafio.android.presenter.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.R
-import com.picpay.desafio.android.model.User
-import com.picpay.desafio.android.ui.adapter.viewholder.UserListItemViewHolder
+import com.picpay.desafio.android.domain.model.User
+import com.picpay.desafio.android.presenter.adapter.viewholder.UserListItemViewHolder
 
 class UserListAdapter(
     val usersList: MutableList<User> = mutableListOf()

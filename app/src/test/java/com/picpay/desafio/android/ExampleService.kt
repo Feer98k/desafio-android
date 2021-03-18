@@ -1,8 +1,7 @@
 package com.picpay.desafio.android
 
-import com.picpay.desafio.android.model.User
-import com.picpay.desafio.android.retrofit.service.PicPayService
-import org.junit.Test
+import com.picpay.desafio.android.domain.model.User
+import com.picpay.desafio.android.data.api.service.PicPayService
 
 class ExampleService(
     private val service: PicPayService

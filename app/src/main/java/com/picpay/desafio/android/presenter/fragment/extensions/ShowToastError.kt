@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.ui.fragment.extensions
+package com.picpay.desafio.android.presenter.fragment.extensions
 
 import android.widget.Toast
 import androidx.fragment.app.Fragment

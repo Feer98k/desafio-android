@@ -1,11 +1,11 @@
-package com.picpay.desafio.android.database
+package com.picpay.desafio.android.data.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.picpay.desafio.android.database.dao.UserDAO
-import com.picpay.desafio.android.model.User
+import com.picpay.desafio.android.data.database.dao.UserDAO
+import com.picpay.desafio.android.domain.model.User
 
 private const val DATABASE_NAME ="users.db"
 @Database(entities = [User::class],version = 1,exportSchema = false)

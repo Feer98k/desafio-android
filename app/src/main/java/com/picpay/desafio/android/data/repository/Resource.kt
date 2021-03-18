@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.repository
+package com.picpay.desafio.android.data.repository
 
 class Resource<T>(
     val data: T? = null,

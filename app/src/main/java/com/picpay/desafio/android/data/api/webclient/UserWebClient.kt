@@ -1,16 +1,15 @@
-package com.picpay.desafio.android.retrofit.webclient
+package com.picpay.desafio.android.data.api.webclient
 
 import com.picpay.desafio.android.R
-import com.picpay.desafio.android.model.User
-import com.picpay.desafio.android.retrofit.AppRetrofit
-import com.picpay.desafio.android.retrofit.service.PicPayService
+import com.picpay.desafio.android.domain.model.User
+import com.picpay.desafio.android.data.api.AppRetrofit
+import com.picpay.desafio.android.data.api.service.PicPayService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class UserWebClient(private val service: PicPayService = AppRetrofit().service) {
     private val message = R.string.error.toString()
-
 
     private fun <T> executeRequest(
         call: Call<T>,
@@ -28,20 +27,16 @@ class UserWebClient(private val service: PicPayService = AppRetrofit().service) 
             override fun onFailure(call: Call<T>, t: Throwable) {
                 onFailure(t.message)
             }
-
         })
-
     }
 
     fun  getAllUsers(
         onSuccess: (users : List<User>?) -> Unit,
-        onFailure: (error: String?) -> Unit
-    ) {
+        onFailure: (error: String?) -> Unit) {
         executeRequest(
             service.getUsers(),
             onSuccess,
             onFailure
         )
-
     }
 }

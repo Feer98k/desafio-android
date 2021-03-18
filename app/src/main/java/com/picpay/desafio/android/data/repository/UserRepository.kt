@@ -1,11 +1,11 @@
-package com.picpay.desafio.android.repository
+package com.picpay.desafio.android.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
-import com.picpay.desafio.android.database.dao.UserDAO
-import com.picpay.desafio.android.model.User
-import com.picpay.desafio.android.retrofit.webclient.UserWebClient
+import com.picpay.desafio.android.data.database.dao.UserDAO
+import com.picpay.desafio.android.domain.model.User
+import com.picpay.desafio.android.data.api.webclient.UserWebClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

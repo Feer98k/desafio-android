@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.ui.fragment
+package com.picpay.desafio.android.presenter.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.R
-import com.picpay.desafio.android.ui.adapter.UserListAdapter
-import com.picpay.desafio.android.ui.fragment.extensions.showError
-import com.picpay.desafio.android.ui.viewmodel.UserListViewModel
+import com.picpay.desafio.android.presenter.adapter.UserListAdapter
+import com.picpay.desafio.android.presenter.fragment.extensions.showError
+import com.picpay.desafio.android.presenter.viewmodel.UserListViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ListUserFragment : Fragment() {
@@ -82,7 +82,6 @@ class ListUserFragment : Fragment() {
             resource.data?.let {
                 adapter.refresh(it)
                 setListUser()
-
             }
             resource.error?.let {
                 showError()

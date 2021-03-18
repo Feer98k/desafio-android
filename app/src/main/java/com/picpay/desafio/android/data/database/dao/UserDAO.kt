@@ -1,9 +1,9 @@
-package com.picpay.desafio.android.database.dao
+package com.picpay.desafio.android.data.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import androidx.room.OnConflictStrategy.REPLACE
-import com.picpay.desafio.android.model.User
+import com.picpay.desafio.android.domain.model.User
 
 @Dao
 interface UserDAO {
