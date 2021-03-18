@@ -4,7 +4,6 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.picpay.desafio.android.data.api.service.PicPayService
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -17,10 +16,7 @@ class AppRetrofit {
     private val gson: Gson by lazy { GsonBuilder().create() }
 
     private val okHttp: OkHttpClient by lazy {
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
         OkHttpClient.Builder()
-            .addInterceptor(interceptor)
             .build()
     }
 
@@ -31,7 +27,7 @@ class AppRetrofit {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
-        val service: PicPayService by lazy {
+    val service: PicPayService by lazy {
         retrofit.create(PicPayService::class.java)
     }
 }
