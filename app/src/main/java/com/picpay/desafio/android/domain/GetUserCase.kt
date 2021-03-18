@@ -9,7 +9,6 @@ import com.picpay.desafio.android.domain.model.User
 class GetUserCase(private val repository: UserRepository) : ViewModel() {
 
     fun getListUsers(): LiveData<Resource<List<User>?>> {
-
         return repository.getAllUsers()
 
     }

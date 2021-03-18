@@ -8,8 +8,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+private  const val message = R.string.error.toString()
+
 class UserWebClient(private val service: PicPayService = AppRetrofit().service) {
-    private val message = R.string.error.toString()
 
     private fun <T> executeRequest(
         call: Call<T>,

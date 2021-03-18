@@ -19,11 +19,10 @@ class ListUserFragment : Fragment() {
 
 
     private val viewModel: UserListViewModel by viewModel()
-
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
 
-    private val adapter by lazy {
+    private val adapterRecyclerView by lazy {
         UserListAdapter()
     }
 
@@ -33,14 +32,12 @@ class ListUserFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
         return inflater.inflate(R.layout.list_user, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-            searchUsers()
-
+        searchUsers()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,36 +48,34 @@ class ListUserFragment : Fragment() {
 
 
     private fun setListUser() {
-
-        recyclerView.adapter = adapter
-        if (adapter.usersList.isNotEmpty()) {
-            progressBar.visibility = View.GONE
-            recyclerView.visibility = View.VISIBLE
+        recyclerView.adapter = adapterRecyclerView
+        if (adapterRecyclerView.usersList.isNotEmpty()) {
+            whenUserListIsNotEmpty()
         } else {
-            defaultValuesComponents()
+            whenListUserIsEmpty()
         }
-        recyclerView.layoutManager = LinearLayoutManager(context)
-
     }
 
-    private fun defaultValuesComponents() {
-        progressBar.visibility = View.GONE
-        recyclerView.visibility = View.GONE
+    private fun whenListUserIsEmpty() {
         progressBar.visibility = View.VISIBLE
+    }
+
+    private fun whenUserListIsNotEmpty() {
+        progressBar.visibility = View.GONE
+        recyclerView.visibility = View.VISIBLE
     }
 
 
     private fun loadingComponents(view: View) {
         recyclerView = view.findViewById(R.id.recyclerView)
         progressBar = view.findViewById(R.id.user_list_progress_bar)
-        defaultValuesComponents()
-
+        recyclerView.layoutManager = LinearLayoutManager(context)
     }
 
     private fun searchUsers() {
         viewModel.getAllUsersModel().observe(this, Observer { resource ->
             resource.data?.let {
-                adapter.refresh(it)
+                adapterRecyclerView.refresh(it)
                 setListUser()
             }
             resource.error?.let {
