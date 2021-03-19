@@ -31,7 +31,6 @@ class ListUserFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.list_user, container, false)
     }
 
@@ -43,7 +42,7 @@ class ListUserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadingComponents(view)
-        setListUser()
+
     }
 
 
@@ -70,6 +69,7 @@ class ListUserFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerView)
         progressBar = view.findViewById(R.id.user_list_progress_bar)
         recyclerView.layoutManager = LinearLayoutManager(context)
+        setListUser()
     }
 
     private fun searchUsers() {
